@@ -1021,6 +1021,23 @@ namespace Sawczyn.EFDesigner.EFModel
 	            }
 	         }
 	      }
+	      // MermaidOutputDirectory
+	      if (!serializationContext.Result.Failed)
+	      {
+	         string attribMermaidOutputDirectory = EFModelSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "mermaidOutputDirectory");
+	         if (attribMermaidOutputDirectory != null)
+	         {
+	            global::System.String valueOfMermaidOutputDirectory;
+	            if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribMermaidOutputDirectory, out valueOfMermaidOutputDirectory))
+	            {
+	               instanceOfModelRoot.MermaidOutputDirectory = valueOfMermaidOutputDirectory;
+	            }
+	            else
+	            {   // Invalid property value, ignored.
+	               EFModelSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "mermaidOutputDirectory", typeof(global::System.String), attribMermaidOutputDirectory);
+	            }
+	         }
+	      }
 	   }
 	
 	   /// <summary>
@@ -2324,6 +2341,17 @@ namespace Sawczyn.EFDesigner.EFModel
 	            {   // No need to write the value out if it's the same as default value.
 	               EFModelSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "generateTableComments", serializedPropValue);
 	            }
+	         }
+	      }
+	      // MermaidOutputDirectory
+	      if (!serializationContext.Result.Failed)
+	      {
+	         global::System.String propValue = instanceOfModelRoot.MermaidOutputDirectory;
+	         if (!serializationContext.Result.Failed)
+	         {
+	            if (!string.IsNullOrEmpty(propValue))
+	               EFModelSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "mermaidOutputDirectory", propValue);
+	
 	         }
 	      }
 	   }
@@ -9433,6 +9461,57 @@ namespace Sawczyn.EFDesigner.EFModel
 	            }
 	         }
 	      }
+	      // GenerateMermaid
+	      if (!serializationContext.Result.Failed)
+	      {
+	         string attribGenerateMermaid = EFModelSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "generateMermaid");
+	         if (attribGenerateMermaid != null)
+	         {
+	            global::System.Boolean valueOfGenerateMermaid;
+	            if (DslModeling::SerializationUtilities.TryGetValue<global::System.Boolean>(serializationContext, attribGenerateMermaid, out valueOfGenerateMermaid))
+	            {
+	               instanceOfModelDiagramData.GenerateMermaid = valueOfGenerateMermaid;
+	            }
+	            else
+	            {   // Invalid property value, ignored.
+	               EFModelSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "generateMermaid", typeof(global::System.Boolean), attribGenerateMermaid);
+	            }
+	         }
+	      }
+	      // OutputDirectory
+	      if (!serializationContext.Result.Failed)
+	      {
+	         string attribOutputDirectory = EFModelSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "outputDirectory");
+	         if (attribOutputDirectory != null)
+	         {
+	            global::System.String valueOfOutputDirectory;
+	            if (DslModeling::SerializationUtilities.TryGetValue<global::System.String>(serializationContext, attribOutputDirectory, out valueOfOutputDirectory))
+	            {
+	               instanceOfModelDiagramData.OutputDirectory = valueOfOutputDirectory;
+	            }
+	            else
+	            {   // Invalid property value, ignored.
+	               EFModelSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "outputDirectory", typeof(global::System.String), attribOutputDirectory);
+	            }
+	         }
+	      }
+	      // IsOutputDirectoryTracking
+	      if (!serializationContext.Result.Failed)
+	      {
+	         string attribIsOutputDirectoryTracking = EFModelSerializationHelper.Instance.ReadAttribute(serializationContext, element, reader, "isOutputDirectoryTracking");
+	         if (attribIsOutputDirectoryTracking != null)
+	         {
+	            global::System.Boolean valueOfIsOutputDirectoryTracking;
+	            if (DslModeling::SerializationUtilities.TryGetValue<global::System.Boolean>(serializationContext, attribIsOutputDirectoryTracking, out valueOfIsOutputDirectoryTracking))
+	            {
+	               instanceOfModelDiagramData.IsOutputDirectoryTracking = valueOfIsOutputDirectoryTracking;
+	            }
+	            else
+	            {   // Invalid property value, ignored.
+	               EFModelSerializationBehaviorSerializationMessages.IgnoredPropertyValue(serializationContext, reader, "isOutputDirectoryTracking", typeof(global::System.Boolean), attribIsOutputDirectoryTracking);
+	            }
+	         }
+	      }
 	   }
 	
 	   /// <summary>
@@ -9784,6 +9863,39 @@ namespace Sawczyn.EFDesigner.EFModel
 	            if (!string.IsNullOrEmpty(propValue))
 	               EFModelSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "name", propValue);
 	
+	         }
+	      }
+	      // GenerateMermaid
+	      if (!serializationContext.Result.Failed)
+	      {
+	         global::System.Boolean propValue = instanceOfModelDiagramData.GenerateMermaid;
+	         string serializedPropValue = DslModeling::SerializationUtilities.GetString<global::System.Boolean>(serializationContext, propValue);
+	         if (!serializationContext.Result.Failed)
+	         {
+	            EFModelSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "generateMermaid", serializedPropValue);
+	         }
+	      }
+	      // OutputDirectory
+	      if (!serializationContext.Result.Failed)
+	      {
+	         global::System.String propValue = instanceOfModelDiagramData.OutputDirectory;
+	         if (!serializationContext.Result.Failed)
+	         {
+	            if (propValue != null)
+	               EFModelSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "outputDirectory", propValue);
+	         }
+	      }
+	      // IsOutputDirectoryTracking
+	      if (!serializationContext.Result.Failed)
+	      {
+	         global::System.Boolean propValue = instanceOfModelDiagramData.IsOutputDirectoryTracking;
+	         string serializedPropValue = DslModeling::SerializationUtilities.GetString<global::System.Boolean>(serializationContext, propValue);
+	         if (!serializationContext.Result.Failed)
+	         {
+	            if (serializationContext.WriteOptionalPropertiesWithDefaultValue || string.CompareOrdinal(serializedPropValue, "true") != 0)
+	            {   // No need to write the value out if it's the same as default value.
+	               EFModelSerializationHelper.Instance.WriteAttributeString(serializationContext, element, writer, "isOutputDirectoryTracking", serializedPropValue);
+	            }
 	         }
 	      }
 	   }

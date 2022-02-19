@@ -31,6 +31,7 @@ namespace Sawczyn.EFDesigner.EFModel
          TypeDescriptor.AddProvider(new AssociationTypeDescriptionProvider(), typeof(Association));
          TypeDescriptor.AddProvider(new ModelAttributeTypeDescriptionProvider(), typeof(ModelAttribute));
          TypeDescriptor.AddProvider(new ModelRootTypeDescriptionProvider(), typeof(ModelRoot));
+         TypeDescriptor.AddProvider(new ModelDiagramDataTypeDescriptionProvider(), typeof(ModelDiagramData));
 
          return base.InitializeAsync(cancellationToken, progress);
       }

@@ -383,6 +383,99 @@ namespace Sawczyn.EFDesigner.EFModel
 	
 }
 #endregion
+#region Custom property definitions for ModelDiagramData
+namespace Sawczyn.EFDesigner.EFModel
+{
+	
+	/// <summary>
+	/// Factory class for ModelDiagramData type descriptors.
+	/// Double-derived class to allow easier code customization.
+	/// </summary>
+	internal sealed partial class ModelDiagramDataTypeDescriptionProvider : ModelDiagramDataTypeDescriptionProviderBase
+	{
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		public ModelDiagramDataTypeDescriptionProvider()
+		{
+		}
+		
+	}
+	
+	/// <summary>
+	/// Base factory class for ModelDiagramData type descriptors.
+	/// </summary>
+	abstract internal class ModelDiagramDataTypeDescriptionProviderBase : DslDesign::ElementTypeDescriptionProvider
+	{
+		/// <summary>
+		/// Called by the System.ComponentModel framework when it requires a type descriptor instance.
+		/// </summary>
+		protected override DslDesign::ElementTypeDescriptor CreateTypeDescriptor(global::System.ComponentModel.ICustomTypeDescriptor parent, DslModeling::ModelElement element)
+		{
+			return new ModelDiagramDataTypeDescriptor(parent, element);
+		}
+	}
+	
+	/// <summary>
+	/// Custom type descriptor class for ModelDiagramData elements.
+	/// </summary>
+	public partial class ModelDiagramDataTypeDescriptor : DslDesign::ElementTypeDescriptor
+	{
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		public ModelDiagramDataTypeDescriptor(global::System.ComponentModel.ICustomTypeDescriptor parent, 
+											DslModeling::ModelElement selectedElement)
+			: base(parent, selectedElement)
+		{
+		}
+	
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		public ModelDiagramDataTypeDescriptor(global::System.ComponentModel.ICustomTypeDescriptor parent,
+												global::System.Type modelElementType)
+			: base(parent, modelElementType)
+		{
+		}
+	
+		/// <summary>
+		/// Returns a collection of property descriptors
+		/// </summary>
+		public override global::System.ComponentModel.PropertyDescriptorCollection GetProperties(global::System.Attribute[] attributes)
+		{
+			// The following method needs to be added in a partial class
+			//   private override global::System.ComponentModel.PropertyDescriptorCollection GetCustomProperties(global::System.Attribute[] attributes)
+			// The skeleton of a suggested method is provided in the comment below.
+			return this.GetCustomProperties(attributes);
+	
+		}
+	
+		// EXAMPLE "GetCustomProperties" METHOD
+		///// <summary>
+		///// Returns a collection of property descriptors an instance of ModelDiagramData.
+		///// </summary>
+		//private global::System.ComponentModel.PropertyDescriptorCollection GetCustomProperties(global::System.Attribute[] attributes)
+		//{
+		//    // Get the default property descriptors from the base class
+		//    global::System.ComponentModel.PropertyDescriptorCollection propertyDescriptors = base.GetProperties(attributes);
+	
+		//    // Get a reference to the model element that is being described.
+		//    ModelDiagramData source = this.ModelElement as ModelDiagramData;
+		//    if (source != null)
+		//    {
+		//        //Add in extra custom properties here...
+		//    }
+	
+		//    // Return the property descriptors for this element
+		//    return propertyDescriptors;
+		//}
+	
+	}
+	
+	
+}
+#endregion
 #region Custom property definitions for Association
 namespace Sawczyn.EFDesigner.EFModel
 {

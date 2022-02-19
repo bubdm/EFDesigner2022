@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using System.IO;
 
 using Microsoft.VisualStudio.Modeling;
 
@@ -28,6 +25,14 @@ namespace Sawczyn.EFDesigner.EFModel
             element.PreResetIsTrackingProperties();
 
          foreach (ModelEnum element in store.ElementDirectory.FindElements<ModelEnum>())
+            element.ResetIsTrackingProperties();
+
+         /************************************************/
+
+         foreach (ModelDiagramData element in store.ElementDirectory.FindElements<ModelDiagramData>())
+            element.PreResetIsTrackingProperties();
+
+         foreach (ModelDiagramData element in store.ElementDirectory.FindElements<ModelDiagramData>())
             element.ResetIsTrackingProperties();
 
          /************************************************/

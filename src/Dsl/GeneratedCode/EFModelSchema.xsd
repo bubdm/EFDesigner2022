@@ -393,6 +393,12 @@
             <xsd:documentation>If true, will allow generating [Comment] attributes on C# class</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <!-- Property: MermaidOutputDirectory -->
+        <xsd:attribute name="mermaidOutputDirectory" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Project directory for generated mermaid files</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -601,7 +607,7 @@
         <!-- Property: GenerateCode -->
         <xsd:attribute name="generateCode" type="xsd:boolean" >
           <xsd:annotation>
-            <xsd:documentation>If true (the default), code will be generated for this class. If false, it is assumed to be referenced from another assembly.</xsd:documentation>
+            <xsd:documentation>If true (the default), code will be generated for this element. If false, it won&apos;t (e.g., it is assumed to be referenced from another assembly).</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <!-- Property: IsPropertyBag -->
@@ -1107,7 +1113,7 @@
         <!-- Property: GenerateCode -->
         <xsd:attribute name="generateCode" type="xsd:boolean" >
           <xsd:annotation>
-            <xsd:documentation>If true (the default), code will be generated for this enum. If false, it is assumed to be referenced from another assembly.</xsd:documentation>
+            <xsd:documentation>If true (the default), code will be generated for this element. If false, it won&apos;t (e.g., it is assumed to be referenced from another assembly).</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>
@@ -1237,6 +1243,24 @@
         <xsd:attribute name="name" type="xsd:string" >
           <xsd:annotation>
             <xsd:documentation>Diagram name</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: GenerateMermaid -->
+        <xsd:attribute name="generateMermaid" type="xsd:boolean" >
+          <xsd:annotation>
+            <xsd:documentation>If true, will generate Mermaid files from this diagram</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: OutputDirectory -->
+        <xsd:attribute name="outputDirectory" type="xsd:string" >
+          <xsd:annotation>
+            <xsd:documentation>Overrides default output directory</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <!-- Property: IsOutputDirectoryTracking -->
+        <xsd:attribute name="isOutputDirectoryTracking" type="xsd:boolean" >
+          <xsd:annotation>
+            <xsd:documentation>If true, ModelDiagramData.OutputDirectory tracks ModelRoot.EnumOutputDirectory</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
       </xsd:extension>

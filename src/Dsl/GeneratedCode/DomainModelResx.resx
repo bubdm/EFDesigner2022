@@ -765,6 +765,18 @@
     <value>Database</value>
     <comment>Category for DomainProperty &apos;GenerateTableComments&apos; on DomainClass &apos;ModelRoot&apos;</comment>
   </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.Description" xml:space="preserve">
+    <value>Project directory for generated mermaid files</value>
+    <comment>Description for DomainProperty &apos;MermaidOutputDirectory&apos; on DomainClass &apos;ModelRoot&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.DisplayName" xml:space="preserve">
+    <value>Output Directory - Mermaid</value>
+    <comment>DisplayName for DomainProperty &apos;MermaidOutputDirectory&apos; on DomainClass &apos;ModelRoot&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.Category" xml:space="preserve">
+    <value>Code Generation</value>
+    <comment>Category for DomainProperty &apos;MermaidOutputDirectory&apos; on DomainClass &apos;ModelRoot&apos;</comment>
+  </data>
   <data name="Sawczyn.EFDesigner.EFModel.ModelClass.Description" xml:space="preserve">
     <value></value>
     <comment>Description for DomainClass &apos;ModelClass&apos;</comment>
@@ -998,7 +1010,7 @@
     <comment>Category for DomainProperty &apos;AutoPropertyDefault&apos; on DomainClass &apos;ModelClass&apos;</comment>
   </data>
   <data name="Sawczyn.EFDesigner.EFModel.ModelClass/GenerateCode.Description" xml:space="preserve">
-    <value>If true (the default), code will be generated for this class. If false, it is assumed to be referenced from another assembly.</value>
+    <value>If true (the default), code will be generated for this element. If false, it won&apos;t (e.g., it is assumed to be referenced from another assembly).</value>
     <comment>Description for DomainProperty &apos;GenerateCode&apos; on DomainClass &apos;ModelClass&apos;</comment>
   </data>
   <data name="Sawczyn.EFDesigner.EFModel.ModelClass/GenerateCode.DisplayName" xml:space="preserve">
@@ -1714,7 +1726,7 @@
     <comment>Category for DomainProperty &apos;CustomAttributes&apos; on DomainClass &apos;ModelEnum&apos;</comment>
   </data>
   <data name="Sawczyn.EFDesigner.EFModel.ModelEnum/GenerateCode.Description" xml:space="preserve">
-    <value>If true (the default), code will be generated for this enum. If false, it is assumed to be referenced from another assembly.</value>
+    <value>If true (the default), code will be generated for this element. If false, it won&apos;t (e.g., it is assumed to be referenced from another assembly).</value>
     <comment>Description for DomainProperty &apos;GenerateCode&apos; on DomainClass &apos;ModelEnum&apos;</comment>
   </data>
   <data name="Sawczyn.EFDesigner.EFModel.ModelEnum/GenerateCode.DisplayName" xml:space="preserve">
@@ -1828,6 +1840,38 @@
   <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/Name.DisplayName" xml:space="preserve">
     <value>Name</value>
     <comment>DisplayName for DomainProperty &apos;Name&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/GenerateMermaid.Description" xml:space="preserve">
+    <value>If true, will generate Mermaid files from this diagram</value>
+    <comment>Description for DomainProperty &apos;GenerateMermaid&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/GenerateMermaid.DisplayName" xml:space="preserve">
+    <value>Generate Mermaid</value>
+    <comment>DisplayName for DomainProperty &apos;GenerateMermaid&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/GenerateMermaid.Category" xml:space="preserve">
+    <value>Code Generation</value>
+    <comment>Category for DomainProperty &apos;GenerateMermaid&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/OutputDirectory.Description" xml:space="preserve">
+    <value>Overrides default output directory</value>
+    <comment>Description for DomainProperty &apos;OutputDirectory&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/OutputDirectory.DisplayName" xml:space="preserve">
+    <value>Output Directory</value>
+    <comment>DisplayName for DomainProperty &apos;OutputDirectory&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/OutputDirectory.Category" xml:space="preserve">
+    <value>Code Generation</value>
+    <comment>Category for DomainProperty &apos;OutputDirectory&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/IsOutputDirectoryTracking.Description" xml:space="preserve">
+    <value>If true, ModelDiagramData.OutputDirectory tracks ModelRoot.EnumOutputDirectory</value>
+    <comment>Description for DomainProperty &apos;IsOutputDirectoryTracking&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
+  </data>
+  <data name="Sawczyn.EFDesigner.EFModel.ModelDiagramData/IsOutputDirectoryTracking.DisplayName" xml:space="preserve">
+    <value>Is Output Directory Tracking</value>
+    <comment>DisplayName for DomainProperty &apos;IsOutputDirectoryTracking&apos; on DomainClass &apos;ModelDiagramData&apos;</comment>
   </data>
   <data name="Sawczyn.EFDesigner.EFModel.Association.Description" xml:space="preserve">
     <value>Associations between Classes.</value>

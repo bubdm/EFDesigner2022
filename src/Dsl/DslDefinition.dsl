@@ -370,6 +370,18 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
+        <DomainProperty Id="a42f2f3f-a28f-478d-a13f-137299f549e6" Description="Project directory for generated mermaid files" Name="MermaidOutputDirectory" DisplayName="Output Directory - Mermaid" Category="Code Generation" IsBrowsable="false">
+          <Attributes>
+            <ClrAttribute Name="System.ComponentModel.TypeConverter">
+              <Parameters>
+                <AttributeParameter Value="typeof(ProjectDirectoryTypeConverter)" />
+              </Parameters>
+            </ClrAttribute>
+          </Attributes>
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
       </Properties>
       <ElementMergeDirectives>
         <ElementMergeDirective>
@@ -548,7 +560,7 @@
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="84329360-6f27-42ec-99fe-3b5bff1dc54c" Description="If true (the default), code will be generated for this class. If false, it is assumed to be referenced from another assembly." Name="GenerateCode" DisplayName="Generate Code" DefaultValue="true" Category="Code Generation">
+        <DomainProperty Id="84329360-6f27-42ec-99fe-3b5bff1dc54c" Description="If true (the default), code will be generated for this element. If false, it won't (e.g., it is assumed to be referenced from another assembly)." Name="GenerateCode" DisplayName="Generate Code" DefaultValue="true" Category="Code Generation">
           <Type>
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
@@ -1001,7 +1013,7 @@
             <ExternalTypeMoniker Name="/System/String" />
           </Type>
         </DomainProperty>
-        <DomainProperty Id="8ebaa1e0-1528-478d-aa32-0a2cedd89254" Description="If true (the default), code will be generated for this enum. If false, it is assumed to be referenced from another assembly." Name="GenerateCode" DisplayName="Generate Code" DefaultValue="true" Category="Code Generation">
+        <DomainProperty Id="8ebaa1e0-1528-478d-aa32-0a2cedd89254" Description="If true (the default), code will be generated for this element. If false, it won't (e.g., it is assumed to be referenced from another assembly)." Name="GenerateCode" DisplayName="Generate Code" DefaultValue="true" Category="Code Generation">
           <Type>
             <ExternalTypeMoniker Name="/System/Boolean" />
           </Type>
@@ -1087,6 +1099,9 @@
     </DomainClass>
     <DomainClass Id="460f3d41-02c2-41dd-8fd3-8286e400e6f1" Description="Description for Sawczyn.EFDesigner.EFModel.DesignElement" Name="DesignElement" DisplayName="Design Element" InheritanceModifier="Abstract" Namespace="Sawczyn.EFDesigner.EFModel" />
     <DomainClass Id="9698525f-c2b0-4283-99f4-6660e10fa082" Description="Represents a viewable model diagram" Name="ModelDiagramData" DisplayName="Diagram" Namespace="Sawczyn.EFDesigner.EFModel">
+      <CustomTypeDescriptor>
+        <DomainTypeDescriptor CustomCoded="true" />
+      </CustomTypeDescriptor>
       <Properties>
         <DomainProperty Id="202e04fe-de2a-4030-9e96-0a7e9df613ab" Description="Diagram name" Name="Name" DisplayName="Name" IsElementName="true">
           <Type>
@@ -1096,14 +1111,28 @@
             <ExternalTypeMoniker Name="ModelDiagramDataNameProvider" />
           </ElementNameProvider>
         </DomainProperty>
+        <DomainProperty Id="998629b6-b44f-42e6-9093-535c414e0673" Description="If true, will generate Mermaid files from this diagram" Name="GenerateMermaid" DisplayName="Generate Mermaid" Category="Code Generation">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="be42384a-4085-4f15-9532-e0441ae471bc" Description="Overrides default output directory" Name="OutputDirectory" DisplayName="Output Directory" Kind="CustomStorage" Category="Code Generation" IsBrowsable="false">
+          <Type>
+            <ExternalTypeMoniker Name="/System/String" />
+          </Type>
+        </DomainProperty>
+        <DomainProperty Id="bd2073e0-35d8-4efd-a856-9e7e66b37133" Description="If true, ModelDiagramData.OutputDirectory tracks ModelRoot.EnumOutputDirectory" Name="IsOutputDirectoryTracking" DisplayName="Is Output Directory Tracking" DefaultValue="true" IsBrowsable="false">
+          <Type>
+            <ExternalTypeMoniker Name="/System/Boolean" />
+          </Type>
+        </DomainProperty>
       </Properties>
     </DomainClass>
   </Classes>
   <Relationships>
     <DomainRelationship Id="ce77f831-a92d-4274-823a-3a8441a65f3a" Description="Associations between Classes." Name="Association" DisplayName="Association" InheritanceModifier="Abstract" Namespace="Sawczyn.EFDesigner.EFModel" AllowsDuplicates="true">
-      <Notes>
-            This is the abstract base relationship of the several kinds of association between Classes.
-            It defines the Properties that are attached to each association.
+      <Notes>This is the abstract base relationship of the several kinds of association between Classes.
+ It defines the Properties that are attached to each association.
          </Notes>
       <CustomTypeDescriptor>
         <DomainTypeDescriptor CustomCoded="true" />
@@ -2396,6 +2425,9 @@
           <XmlPropertyData XmlName="generateTableComments">
             <DomainPropertyMoniker Name="ModelRoot/GenerateTableComments" />
           </XmlPropertyData>
+          <XmlPropertyData XmlName="mermaidOutputDirectory">
+            <DomainPropertyMoniker Name="ModelRoot/MermaidOutputDirectory" />
+          </XmlPropertyData>
         </ElementData>
       </XmlClassData>
       <XmlClassData TypeName="ModelClass" MonikerAttributeName="" SerializeId="true" MonikerElementName="modelClassMoniker" ElementName="modelClass" MonikerTypeName="ModelClassMoniker">
@@ -2918,6 +2950,15 @@
         <ElementData>
           <XmlPropertyData XmlName="name">
             <DomainPropertyMoniker Name="ModelDiagramData/Name" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="generateMermaid">
+            <DomainPropertyMoniker Name="ModelDiagramData/GenerateMermaid" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="outputDirectory">
+            <DomainPropertyMoniker Name="ModelDiagramData/OutputDirectory" />
+          </XmlPropertyData>
+          <XmlPropertyData XmlName="isOutputDirectoryTracking">
+            <DomainPropertyMoniker Name="ModelDiagramData/IsOutputDirectoryTracking" />
           </XmlPropertyData>
         </ElementData>
       </XmlClassData>

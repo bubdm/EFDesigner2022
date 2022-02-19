@@ -137,6 +137,34 @@ namespace Sawczyn.EFDesigner.EFModel
          }
       }
 
+      /// <summary>
+      /// Output location value for the generated non-persistent objects
+      /// </summary>
+      [TypeConverter(typeof(ProjectDirectoryTypeConverter))]
+      [DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.DisplayName", typeof(EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+      [CategoryResource("Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.Category", typeof(EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+      [DescriptionResource("Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.Description", typeof(EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+      public string Mermaid
+      {
+         get
+         {
+            return string.IsNullOrWhiteSpace(modelRoot.MermaidOutputDirectory)
+                      ? modelRoot.ContextOutputDirectory
+                      : modelRoot.MermaidOutputDirectory;
+         }
+         set
+         {
+            using (Transaction t = modelRoot.Store.TransactionManager.BeginTransaction())
+            {
+               modelRoot.MermaidOutputDirectory = string.IsNullOrWhiteSpace(value) || value == modelRoot.MermaidOutputDirectory
+                                                     ? null
+                                                     : value;
+
+               t.Commit();
+            }
+         }
+      }
+
       /// <summary>Returns a string that represents the current object.</summary>
       /// <returns>A string that represents the current object.</returns>
       public override string ToString()

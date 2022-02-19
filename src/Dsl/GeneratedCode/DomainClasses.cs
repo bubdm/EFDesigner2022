@@ -4782,6 +4782,96 @@ namespace Sawczyn.EFDesigner.EFModel
 		}
 		
 		#endregion
+		#region MermaidOutputDirectory domain property code
+		
+		/// <summary>
+		/// MermaidOutputDirectory domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid MermaidOutputDirectoryDomainPropertyId = new global::System.Guid(0xa42f2f3f, 0xa28f, 0x478d, 0xa1, 0x3f, 0x13, 0x72, 0x99, 0xf5, 0x49, 0xe6);
+		
+		/// <summary>
+		/// Storage for MermaidOutputDirectory
+		/// </summary>
+		private global::System.String mermaidOutputDirectoryPropertyStorage = string.Empty;
+		
+		/// <summary>
+		/// Gets or sets the value of MermaidOutputDirectory domain property.
+		/// Project directory for generated mermaid files
+		/// </summary>
+		[System.ComponentModel.TypeConverter(typeof(ProjectDirectoryTypeConverter))]
+		[DslDesign::DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.DisplayName", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.Category", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Sawczyn.EFDesigner.EFModel.ModelRoot/MermaidOutputDirectory.Description", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.Browsable(false)]
+		[DslModeling::DomainObjectId("a42f2f3f-a28f-478d-a13f-137299f549e6")]
+		public global::System.String MermaidOutputDirectory
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return mermaidOutputDirectoryPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				MermaidOutputDirectoryPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ModelRoot.MermaidOutputDirectory domain property.
+		/// </summary>
+		internal sealed partial class MermaidOutputDirectoryPropertyHandler : DslModeling::DomainPropertyValueHandler<ModelRoot, global::System.String>
+		{
+			private MermaidOutputDirectoryPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ModelRoot.MermaidOutputDirectory domain property value handler.
+			/// </summary>
+			public static readonly MermaidOutputDirectoryPropertyHandler Instance = new MermaidOutputDirectoryPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ModelRoot.MermaidOutputDirectory domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return MermaidOutputDirectoryDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ModelRoot element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.mermaidOutputDirectoryPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ModelRoot element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.mermaidOutputDirectoryPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
 		#region Comments opposite domain role accessor
 		
 		/// <summary>
@@ -6846,8 +6936,8 @@ namespace Sawczyn.EFDesigner.EFModel
 		
 		/// <summary>
 		/// Gets or sets the value of GenerateCode domain property.
-		/// If true (the default), code will be generated for this class. If false, it is
-		/// assumed to be referenced from another assembly.
+		/// If true (the default), code will be generated for this element. If false, it
+		/// won't (e.g., it is assumed to be referenced from another assembly).
 		/// </summary>
 		[DslDesign::DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelClass/GenerateCode.DisplayName", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Sawczyn.EFDesigner.EFModel.ModelClass/GenerateCode.Category", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
@@ -12917,8 +13007,8 @@ namespace Sawczyn.EFDesigner.EFModel
 		
 		/// <summary>
 		/// Gets or sets the value of GenerateCode domain property.
-		/// If true (the default), code will be generated for this enum. If false, it is
-		/// assumed to be referenced from another assembly.
+		/// If true (the default), code will be generated for this element. If false, it
+		/// won't (e.g., it is assumed to be referenced from another assembly).
 		/// </summary>
 		[DslDesign::DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelEnum/GenerateCode.DisplayName", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
 		[DslDesign::CategoryResource("Sawczyn.EFDesigner.EFModel.ModelEnum/GenerateCode.Category", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
@@ -13821,6 +13911,7 @@ namespace Sawczyn.EFDesigner.EFModel
 	/// Represents a viewable model diagram
 	/// </summary>
 	[DslDesign::DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData.DisplayName", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+	[global::System.ComponentModel.TypeDescriptionProvider(typeof(ModelDiagramDataTypeDescriptionProvider))]
 	[DslDesign::DescriptionResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData.Description", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
 	[DslModeling::DomainModelOwner(typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel))]
 	[global::System.CLSCompliant(true)]
@@ -13936,6 +14027,274 @@ namespace Sawczyn.EFDesigner.EFModel
 				{
 					ValueChanging(element, oldValue, newValue);
 					element.namePropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region GenerateMermaid domain property code
+		
+		/// <summary>
+		/// GenerateMermaid domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid GenerateMermaidDomainPropertyId = new global::System.Guid(0x998629b6, 0xb44f, 0x42e6, 0x90, 0x93, 0x53, 0x5c, 0x41, 0x4e, 0x06, 0x73);
+		
+		/// <summary>
+		/// Storage for GenerateMermaid
+		/// </summary>
+		private global::System.Boolean generateMermaidPropertyStorage;
+		
+		/// <summary>
+		/// Gets or sets the value of GenerateMermaid domain property.
+		/// If true, will generate Mermaid files from this diagram
+		/// </summary>
+		[DslDesign::DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/GenerateMermaid.DisplayName", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/GenerateMermaid.Category", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/GenerateMermaid.Description", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslModeling::DomainObjectId("998629b6-b44f-42e6-9093-535c414e0673")]
+		public global::System.Boolean GenerateMermaid
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return generateMermaidPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				GenerateMermaidPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ModelDiagramData.GenerateMermaid domain property.
+		/// </summary>
+		internal sealed partial class GenerateMermaidPropertyHandler : DslModeling::DomainPropertyValueHandler<ModelDiagramData, global::System.Boolean>
+		{
+			private GenerateMermaidPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ModelDiagramData.GenerateMermaid domain property value handler.
+			/// </summary>
+			public static readonly GenerateMermaidPropertyHandler Instance = new GenerateMermaidPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ModelDiagramData.GenerateMermaid domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return GenerateMermaidDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(ModelDiagramData element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.generateMermaidPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ModelDiagramData element, global::System.Boolean newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Boolean oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.generateMermaidPropertyStorage = newValue;
+					ValueChanged(element, oldValue, newValue);
+				}
+			}
+		}
+		
+		#endregion
+		#region OutputDirectory domain property code
+		
+		/// <summary>
+		/// OutputDirectory domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid OutputDirectoryDomainPropertyId = new global::System.Guid(0xbe42384a, 0x4085, 0x4f15, 0x95, 0x32, 0xe0, 0x44, 0x1a, 0xe4, 0x71, 0xbc);
+		
+		/// <summary>
+		/// Gets or sets the value of OutputDirectory domain property.
+		/// Overrides default output directory
+		/// </summary>
+		[DslDesign::DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/OutputDirectory.DisplayName", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslDesign::CategoryResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/OutputDirectory.Category", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/OutputDirectory.Description", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.Browsable(false)]
+		[DslModeling::DomainProperty(Kind = DslModeling::DomainPropertyKind.CustomStorage)]
+		[DslModeling::DomainObjectId("be42384a-4085-4f15-9532-e0441ae471bc")]
+		public global::System.String OutputDirectory
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return OutputDirectoryPropertyHandler.Instance.GetValue(this);
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				OutputDirectoryPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ModelDiagramData.OutputDirectory domain property.
+		/// </summary>
+		internal sealed partial class OutputDirectoryPropertyHandler : DslModeling::DomainPropertyValueHandler<ModelDiagramData, global::System.String>
+		{
+			private OutputDirectoryPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ModelDiagramData.OutputDirectory domain property value handler.
+			/// </summary>
+			public static readonly OutputDirectoryPropertyHandler Instance = new OutputDirectoryPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ModelDiagramData.OutputDirectory domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return OutputDirectoryDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.String GetValue(ModelDiagramData element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				// There is no storage for OutputDirectory because its Kind is
+				// set to CustomStorage. Please provide the GetOutputDirectoryValue()
+				// method on the domain class.
+				return element.GetOutputDirectoryValue();
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ModelDiagramData element, global::System.String newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.String oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					// There is no storage for OutputDirectory because its Kind is
+					// set to CustomStorage. Please provide the SetOutputDirectoryValue()
+					// method on the domain class.
+					element.SetOutputDirectoryValue(newValue);
+					ValueChanged(element, oldValue, GetValue(element));
+				}
+			}
+		}
+		
+		#endregion
+		#region IsOutputDirectoryTracking domain property code
+		
+		/// <summary>
+		/// IsOutputDirectoryTracking domain property Id.
+		/// </summary>
+		public static readonly global::System.Guid IsOutputDirectoryTrackingDomainPropertyId = new global::System.Guid(0xbd2073e0, 0x35d8, 0x4efd, 0xa8, 0x56, 0x9e, 0x7e, 0x66, 0xb3, 0x71, 0x33);
+		
+		/// <summary>
+		/// Storage for IsOutputDirectoryTracking
+		/// </summary>
+		private global::System.Boolean isOutputDirectoryTrackingPropertyStorage = true;
+		
+		/// <summary>
+		/// Gets or sets the value of IsOutputDirectoryTracking domain property.
+		/// If true, ModelDiagramData.OutputDirectory tracks ModelRoot.EnumOutputDirectory
+		/// </summary>
+		[DslDesign::DisplayNameResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/IsOutputDirectoryTracking.DisplayName", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[DslDesign::DescriptionResource("Sawczyn.EFDesigner.EFModel.ModelDiagramData/IsOutputDirectoryTracking.Description", typeof(global::Sawczyn.EFDesigner.EFModel.EFModelDomainModel), "Sawczyn.EFDesigner.EFModel.GeneratedCode.DomainModelResx")]
+		[global::System.ComponentModel.DefaultValue(true)]
+		[global::System.ComponentModel.Browsable(false)]
+		[DslModeling::DomainObjectId("bd2073e0-35d8-4efd-a856-9e7e66b37133")]
+		public global::System.Boolean IsOutputDirectoryTracking
+		{
+			[global::System.Diagnostics.DebuggerStepThrough]
+			get
+			{
+				return isOutputDirectoryTrackingPropertyStorage;
+			}
+			[global::System.Diagnostics.DebuggerStepThrough]
+			set
+			{
+				IsOutputDirectoryTrackingPropertyHandler.Instance.SetValue(this, value);
+			}
+		}
+		/// <summary>
+		/// Value handler for the ModelDiagramData.IsOutputDirectoryTracking domain property.
+		/// </summary>
+		internal sealed partial class IsOutputDirectoryTrackingPropertyHandler : DslModeling::DomainPropertyValueHandler<ModelDiagramData, global::System.Boolean>
+		{
+			private IsOutputDirectoryTrackingPropertyHandler() { }
+		
+			/// <summary>
+			/// Gets the singleton instance of the ModelDiagramData.IsOutputDirectoryTracking domain property value handler.
+			/// </summary>
+			public static readonly IsOutputDirectoryTrackingPropertyHandler Instance = new IsOutputDirectoryTrackingPropertyHandler();
+		
+			/// <summary>
+			/// Gets the Id of the ModelDiagramData.IsOutputDirectoryTracking domain property.
+			/// </summary>
+			public sealed override global::System.Guid DomainPropertyId
+			{
+				[global::System.Diagnostics.DebuggerStepThrough]
+				get
+				{
+					return IsOutputDirectoryTrackingDomainPropertyId;
+				}
+			}
+			
+			/// <summary>
+			/// Gets a strongly-typed value of the property on specified element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <returns>Property value.</returns>
+			public override sealed global::System.Boolean GetValue(ModelDiagramData element)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+				return element.isOutputDirectoryTrackingPropertyStorage;
+			}
+		
+			/// <summary>
+			/// Sets property value on an element.
+			/// </summary>
+			/// <param name="element">Element which owns the property.</param>
+			/// <param name="newValue">New property value.</param>
+			public override sealed void SetValue(ModelDiagramData element, global::System.Boolean newValue)
+			{
+				if (element == null) throw new global::System.ArgumentNullException("element");
+		
+				global::System.Boolean oldValue = GetValue(element);
+				if (newValue != oldValue)
+				{
+					ValueChanging(element, oldValue, newValue);
+					element.isOutputDirectoryTrackingPropertyStorage = newValue;
 					ValueChanged(element, oldValue, newValue);
 				}
 			}
