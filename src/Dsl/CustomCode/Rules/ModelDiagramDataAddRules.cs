@@ -20,6 +20,7 @@ namespace Sawczyn.EFDesigner.EFModel
          if (current.IsSerializing || ModelRoot.BatchUpdating)
             return;
 
+
          ModelDiagramData.OpenDiagram?.Invoke(element);
          if (element.GetDiagram() == null)
             element.SetDiagram(store.GetAll<EFModelDiagram>().FirstOrDefault(d => d.Name == store.ModelRoot().GetFileName()));

@@ -1,8 +1,12 @@
+using Microsoft.VisualStudio.Modeling;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security;
+
+using Sawczyn.EFDesigner.EFModel.Extensions;
 
 // ReSharper disable RedundantNameQualifier
 
@@ -12,7 +16,7 @@ namespace Sawczyn.EFDesigner.EFModel.EditingOnly
    public partial class GeneratedTextTransformation
    {
       #region Template
-      // EFDesigner v4.1.2.0
+      // EFDesigner v4.1.3.1
       // Copyright (c) 2017-2022 Michael Sawczyn
       // https://github.com/msawczyn/EFDesigner
 
@@ -467,6 +471,59 @@ namespace Sawczyn.EFDesigner.EFModel.EditingOnly
          public static bool IsNullable(ModelAttribute modelAttribute)
          {
             return !modelAttribute.Required && !modelAttribute.IsIdentity && !modelAttribute.IsConcurrencyToken && !NonNullableTypes.Contains(modelAttribute.Type);
+         }
+
+         protected void WriteMermaidFile(IEnumerable<ModelElement> elements)
+         {
+            List<ModelElement> modelElements = elements.ToList();
+            Output("classDiagram");
+
+            List<ModelClass> modelClasses = modelElements.OfType<ModelClass>().OrderBy(e => e.Name).ToList();
+            foreach (ModelClass modelClass in modelClasses)
+            {
+               NL();
+               Output($"class {modelClass.Name} {{");
+               PushIndent("   ");
+
+               if (modelClass.IsAbstract)
+                  Output("   <<abstract>>");
+
+               foreach (ModelAttribute modelAttribute in modelClass.Attributes)
+                  Output($"+{modelAttribute.CLRType} {modelAttribute.Name}");
+
+               foreach (NavigationProperty navigationProperty in modelClass.AllNavigationProperties().Where(p => !string.IsNullOrEmpty(p.PropertyName)))
+               {
+                  Output(navigationProperty.IsCollection
+                            ? $"   +ICollection~{navigationProperty.ClassType.Name}~ {navigationProperty.PropertyName}"
+                            : $"   +{navigationProperty.ClassType.Name} {navigationProperty.PropertyName}");
+               }
+               
+               Output("}");
+            
+               if (modelClass.Superclass != null) Output($"{modelClass.Name} --!> {modelClass.Superclass.Name}");
+            }
+
+            NL();
+
+            foreach (UnidirectionalAssociation association in modelClasses.First().ModelRoot.Store.GetAll<UnidirectionalAssociation>())
+               Output($"{association.Source.Name} \"{association.SourceMultiplicityDisplay}\" --> \"{association.TargetMultiplicityDisplay}\" {association.Target.Name}");
+
+            foreach (BidirectionalAssociation association in modelClasses.First().ModelRoot.Store.GetAll<BidirectionalAssociation>()) 
+               Output($"{association.Source.Name} \"{association.SourceMultiplicityDisplay}\" <--> \"{association.TargetMultiplicityDisplay}\" {association.Target.Name}");
+
+            List<ModelEnum> modelEnums = modelElements.OfType<ModelEnum>().OrderBy(e => e.Name).ToList();
+            foreach (ModelEnum modelEnum in modelEnums)
+            {
+               NL();
+               Output($"class {modelEnum.Name} {{");
+               PushIndent("   ");
+               Output("<<enumeration>>");
+
+               foreach (ModelEnumValue value in modelEnum.Values)
+                  Output(value.Name);
+
+               Output("}");
+            }
          }
 
          protected virtual void WriteClass(ModelClass modelClass)
@@ -1264,6 +1321,8 @@ namespace Sawczyn.EFDesigner.EFModel.EditingOnly
             }
          }
       }
+
+
       #endregion Template
    }
 }

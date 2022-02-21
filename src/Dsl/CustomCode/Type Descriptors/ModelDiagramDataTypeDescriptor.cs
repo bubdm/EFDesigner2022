@@ -19,22 +19,30 @@ namespace Sawczyn.EFDesigner.EFModel
          PropertyDescriptorCollection propertyDescriptors = base.GetProperties(attributes);
 
          //Add the descriptor for the tracking property.  
-         if (ModelElement is ModelDiagramData ModelDiagramData)
+         if (ModelElement is ModelDiagramData diagramData)
          {
-            storeDomainDataDirectory = ModelDiagramData.Store.DomainDataDirectory;
+            storeDomainDataDirectory = diagramData.Store.DomainDataDirectory;
 
+            // if the name of the diagram is the name of the model file, it's the default diagram. Can't modify it, so remove the temptation.
+            if (diagramData.Name == System.IO.Path.GetFileNameWithoutExtension(diagramData.ModelRoot.GetFileName()))
+               propertyDescriptors.Remove("Name");
+
+            ;
             //Add the descriptors for the tracking properties 
 
-            propertyDescriptors.Add(new TrackingPropertyDescriptor(ModelDiagramData
-                                                                 , storeDomainDataDirectory.GetDomainProperty(ModelDiagramData.OutputDirectoryDomainPropertyId)
-                                                                 , storeDomainDataDirectory.GetDomainProperty(ModelDiagramData.IsOutputDirectoryTrackingDomainPropertyId)
-                                                                 , new Attribute[]
-                                                                   {
-                                                                      new DisplayNameAttribute("Output Directory")
-                                                                    , new DescriptionAttribute("Overrides default output directory")
-                                                                    , new CategoryAttribute("Code Generation")
-                                                                    , new TypeConverterAttribute(typeof(ProjectDirectoryTypeConverter))
-                                                                   }));
+            if (diagramData.GenerateMermaid)
+            {
+               propertyDescriptors.Add(new TrackingPropertyDescriptor(diagramData
+                                                                    , storeDomainDataDirectory.GetDomainProperty(ModelDiagramData.OutputDirectoryDomainPropertyId)
+                                                                    , storeDomainDataDirectory.GetDomainProperty(ModelDiagramData.IsOutputDirectoryTrackingDomainPropertyId)
+                                                                    , new Attribute[]
+                                                                      {
+                                                                         new DisplayNameAttribute("Output Directory")
+                                                                       , new DescriptionAttribute("Overrides default output directory")
+                                                                       , new CategoryAttribute("Code Generation")
+                                                                       , new TypeConverterAttribute(typeof(ProjectDirectoryTypeConverter))
+                                                                      }));
+            }
          }
 
          // Return the property descriptors for this element  

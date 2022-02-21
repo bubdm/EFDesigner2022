@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="4.1.2.0" Id="cba47279-0950-4257-bb2c-e4d5e72a52a4" entityContainerName="EFModel1" namespace="Testing" connectionString="Data Source=.\sqlexpress;Initial Catalog=Test;Integrated Security=True" automaticMigrationsEnabled="false" contextOutputDirectory="Generated" chopMethodChains="false" transformOnSave="false" showCascadeDeletes="false" databaseType="None" warnOnMissingDocumentation="false" exposeForeignKeys="false" propertyAccessModeDefault="Field" generateDbContextFactory="false" showInterfaceIndicators="false" xmlns="http://schemas.microsoft.com/dsltools/EFModel">
+<modelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="4.1.3.2" Id="cba47279-0950-4257-bb2c-e4d5e72a52a4" entityContainerName="EFModel1" namespace="Testing" connectionString="Data Source=.\sqlexpress;Initial Catalog=Test;Integrated Security=True" automaticMigrationsEnabled="false" contextOutputDirectory="Generated" chopMethodChains="false" transformOnSave="false" showCascadeDeletes="false" databaseType="None" warnOnMissingDocumentation="false" exposeForeignKeys="false" propertyAccessModeDefault="Field" generateDbContextFactory="false" showInterfaceIndicators="false" xmlns="http://schemas.microsoft.com/dsltools/EFModel">
   <classes>
     <modelRootHasClasses Id="b4b1b984-010e-414e-9e9e-095c6d340f51">
       <modelClass Id="4415571e-c82d-4997-95db-7ca530e8756c" isAbstract="true" tableName="EntityAbstract" databaseSchema="dbo" namespace="Testing" dbSetName="EntityAbstract" name="EntityAbstract" isOutputDirectoryTracking="false" autoPropertyDefault="true" excludeFromMigrations="false" useTemporalTables="false" isAssociationClass="false" describedAssociationElementId="00000000-0000-0000-0000-000000000000">
@@ -64,7 +64,7 @@
   </classes>
   <diagrams>
     <modelRootHasModelDiagrams Id="42257650-0306-49f1-bea5-c685df6ef205">
-      <modelDiagramData name="EFModel1" />
+      <modelDiagramData name="EFModel1" generateMermaid="true" outputDirectory="Generated" />
     </modelRootHasModelDiagrams>
   </diagrams>
 </modelRoot>

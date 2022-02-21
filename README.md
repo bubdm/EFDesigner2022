@@ -75,6 +75,9 @@ to <a href="https://www.jetbrains.com/?from=EFDesigner"><img src="https://msawcz
 
 ### Change Log
 
+4.1.3
+   - Added ability to create Mermaid (*.mmd) markdown files from diagrams
+
 4.1.2
    - Added ability to create association classes via drag and drop of an entity onto a bidirectional many-to-many association
    - Restored ability to open secondary diagrams

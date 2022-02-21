@@ -7,20 +7,6 @@ using Microsoft.VisualStudio.Shell;
 
 namespace Sawczyn.EFDesigner.EFModel.DslPackage
 {
-   public class OptionsEventArgs : EventArgs
-   {
-      public string Option { get; }
-      public object OldValue { get; }
-      public object NewValue { get; }
-
-      public OptionsEventArgs(string option, object oldValue, object newValue)
-      {
-         Option = option;
-         OldValue = oldValue;
-         NewValue = newValue;
-      }
-   }
-
    public class OptionsPage : DialogPage
    {
       public event EventHandler<OptionsEventArgs> OptionChanged ;
@@ -69,4 +55,19 @@ namespace Sawczyn.EFDesigner.EFModel.DslPackage
          }
       }
    }
+
+   public class OptionsEventArgs : EventArgs
+   {
+      public string Option { get; }
+      public object OldValue { get; }
+      public object NewValue { get; }
+
+      public OptionsEventArgs(string option, object oldValue, object newValue)
+      {
+         Option = option;
+         OldValue = oldValue;
+         NewValue = newValue;
+      }
+   }
+
 }

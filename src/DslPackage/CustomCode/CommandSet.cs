@@ -418,7 +418,7 @@ namespace Sawczyn.EFDesigner.EFModel
          get
          {
             return CurrentSelection.Count == 0
-                      ? new NodeShape[0]
+                      ? Array.Empty<NodeShape>()
                       : CurrentSelection.OfType<ClassShape>().Cast<NodeShape>()
                                         .Union(CurrentSelection.OfType<EnumShape>())
                                         .Union(CurrentSelection.OfType<CommentBoxShape>())

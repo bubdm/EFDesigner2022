@@ -10,7 +10,7 @@ namespace Sawczyn.EFDesigner.EFModel.EditingOnly
    public partial class GeneratedTextTransformation
    {
       #region Template
-      // EFDesigner v4.1.2.0
+      // EFDesigner v4.1.3.1
       // Copyright (c) 2017-2022 Michael Sawczyn
       // https://github.com/msawczyn/EFDesigner
 
@@ -383,6 +383,23 @@ namespace Sawczyn.EFDesigner.EFModel.EditingOnly
             ClearIndent();
             efModelFileManager.StartNewFile(Path.Combine(modelRoot.ContextOutputDirectory, $"{modelRoot.EntityContainerName}{fileNameMarker}.cs"));
             WriteDbContext();
+
+            // Mermaid
+            foreach (ModelDiagramData diagramData in modelRoot.Diagrams.Where(d => d.GenerateMermaid))
+            {
+               EFModelDiagram diagram = diagramData.GetDiagram();
+               if (diagram != null)
+               {
+                  List<ModelElement> elements = diagram.NestedChildShapes.OfType<NodeShape>().Where(s => s.ModelElement is ModelClass || s.ModelElement is ModelEnum).Select(s => s.ModelElement).ToList();
+
+                  if (elements.Any())
+                  {
+                     ClearIndent();
+                     manager.StartNewFile(Path.Combine(diagramData.EffectiveOutputDirectory, $"{diagramData.Name}{fileNameMarker}.mmd"));
+                     WriteMermaidFile(elements);
+                  }
+               }
+            }
          }
 
          protected override List<string> GetAdditionalUsingStatements()

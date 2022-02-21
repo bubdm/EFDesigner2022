@@ -52,6 +52,9 @@ may be a bugfix or two your customized templates don't have. But, hey ... if you
 
 **ChangeLog**
 
+**4.1.3**
+   - **[NEW]** Added ability to create Mermaid (*.mmd) markdown files from diagrams
+
 **4.1.2**
    - **[NEW]** Added ability to create association classes via drag and drop of an entity onto a bidirectional many-to-many association
    - Restored ability to open secondary diagrams
